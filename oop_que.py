@@ -171,3 +171,63 @@ e1 = Employee(32000)
 print(e1.get_salary())
 e1.set_salary(45000)
 print(e1.get_salary())
+
+
+#Demonstrate polymorphism using different classes with the same method name.
+
+
+class Cat:
+    def sound(self):
+        print("meow")
+
+class Dog:
+    def sound(self):
+        print('bark')
+
+class Cow:
+    def sound(self):
+        print("moo")
+
+
+animal = [Cat(),Dog(),Cow()]
+
+for i in animal:
+    i.sound()
+
+
+#Demonstrate polymorphism using different classes with the same method name.
+
+
+from abc import ABC,abstractmethod
+
+class Shape(ABC):
+
+    @abstractmethod
+    def area(self):
+        pass
+
+class Circle(Shape):
+    def __init__(self,radius):
+        self.radius = radius
+
+    def area(self):
+        return 3.14*self.radius**2
+    
+    
+
+class Rectangle(Shape):
+    def __init__(self,length,width):
+        self.length = length
+        self.width = width
+
+    def area(self):
+        return self.length*self.width
+
+c=Circle(4.2)
+r=Rectangle(12,8)
+
+print("area of circle",c.area())
+print("area of rectangle",r.area())
+
+    
+
